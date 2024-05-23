@@ -1,0 +1,106 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.form{
+    width: 50%;
+    height: 100%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form h1{
+    font-size: 3rem;
+    font-weight: 500;
+}
+.form p{
+    font-weight: 400;
+    color: #525252;
+}
+
+.form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 2rem;
+
+}
+
+.form form input{
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #C2C2C2;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-weight: 500;
+}
+.form form div{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+.form form input[type="checkbox"]{
+    width: auto;
+    margin-right: 0.5rem;
+    accent-color: #ED5353;
+    border-radius: 0px;
+}
+
+.form form input::placeholder{
+    color: #525252;
+}
+
+.form form button{
+    min-width: 15rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+    background-color: #ED5353;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form form button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+.hero{
+    width: 50%;
+    height: 100%;
+    background-image: url("../../../assets/images/hero.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    color: white;
+    padding: 5rem;
+    text-align: center;
+}
+
+.hero h1{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.form a{
+    color: black;
+    font-weight: 600;
+}
