@@ -7,6 +7,18 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
 import bodyParser from "body-parser";
+import cors from "cors";
+
+
+dotenv.config();
+const app = express();
+app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,9 +30,7 @@ const logStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
     flags: "a",
   });
 
-dotenv.config();
-const app = express();
-app.use(express.json());
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

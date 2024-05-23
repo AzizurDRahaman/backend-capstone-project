@@ -23,7 +23,7 @@ export const createJob = async (req, res, next) => {
         !jobType ||
         !skills
       ) {
-        return res.status(400).send("Please fill all the fields");
+        return res.status(400).json({message: "Please fill all the fields"});
       }
       const skillsArray = skills.split(",").map((skill) => skill.trim());
       const newJob = new Job({
@@ -40,7 +40,7 @@ export const createJob = async (req, res, next) => {
         updatedAt: new Date(),
       });
       await newJob.save();
-      res.status(201).send("Job created successfully");
+      res.status(201).json({message: "Job created successfully"});
     } catch (err) {
       next(err);
     }
@@ -50,7 +50,7 @@ export const getAllJobs = async (req, res, next) => {
       const jobs = await Job.find()
         .select(["title", "skills", "companyName"]) // select only these fields
         .sort({ createdAt: -1 }); // -1 for descending order
-      res.status(200).send(jobs);
+      res.status(200).json(jobs);
     } catch (err) {
       next(err);
     }
@@ -62,9 +62,9 @@ export const getJobById = async (req, res, next) => {
       const job = await Job.findById(jobnumber);
       // if job is not found in the database it will give 500 because Job.findById() will throw an error instead of returning null
       if (!job) {
-        return res.status(404).send("Job not found");
+        return res.status(404).json({message: "Job not found"});
       }
-      res.status(200).send(job);
+      res.status(200).json(job);
     } catch (err) {
       next(err);
     }
@@ -93,7 +93,7 @@ export const updateJob = async (req, res, next) => {
         },
         { new: true }
       );
-      res.status(200).send(updatedJob);
+      res.status(200).json(updatedJob);
     } catch (err) {
       next(err);
     }
