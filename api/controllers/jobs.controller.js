@@ -3,37 +3,46 @@ import Job from "../models/job.model.js";
 export const createJob = async (req, res, next) => {
     try {
       const {
-        title,
         companyName,
-        location,
+        logo,
+        title,
         salary,
-        description,
-        locationType,
         jobType,
+        locationType,
+        location,
+        description,
+        about,
         skills,
+        information
       } = req.body;
   
       if (
-        !title ||
-        !companyName ||
-        !location ||
-        !salary ||
-        !description ||
-        !locationType ||
-        !jobType ||
-        !skills
+        !companyName||
+        !logo||
+        !title||
+        !salary||
+        !jobType||
+        !locationType||
+        !location||
+        !description||
+        !about||
+        !skills||
+        !information
       ) {
         return res.status(400).json({message: "Please fill all the fields"});
       }
       const skillsArray = skills.split(",").map((skill) => skill.trim());
       const newJob = new Job({
-        title,
         companyName,
-        location,
+        logo,
+        title,
         salary,
-        description,
-        locationType,
         jobType,
+        locationType,
+        location,
+        description,
+        about,
+        information,
         skills: skillsArray,
         refUserId: req.userId,
         createdAt: new Date(),
@@ -48,7 +57,7 @@ export const createJob = async (req, res, next) => {
 export const getAllJobs = async (req, res, next) => {
     try {
       const jobs = await Job.find()
-        .select(["title", "skills", "companyName"]) // select only these fields
+        .select(["title", "skills","salary", "location", "locationType", "logo", "jobType"]) // select only these fields
         .sort({ createdAt: -1 }); // -1 for descending order
       res.status(200).json(jobs);
     } catch (err) {

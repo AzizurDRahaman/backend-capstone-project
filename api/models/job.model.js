@@ -33,6 +33,18 @@ const jobSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  logo:{
+    type: String,
+    required: true
+  },
+  about:{
+    type: String,
+    required: true
+  },
+  information:{
+    type: String,
+    required: true
+  },
   refUserId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
