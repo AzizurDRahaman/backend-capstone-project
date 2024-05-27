@@ -8,10 +8,10 @@ export default function Navbar() {
         <div className={styles.rectangle1}></div>
         <div className={styles.rectangle2}></div>
         <div className={styles.rectangle3}></div>
-        <h1>Jobfinder</h1>
+        <h1 onClick={() => window.location.href = "/"}>Jobfinder</h1>
         <div className={styles.buttons}>
-          <button className={styles.login}>Login</button>
-          <button className={styles.register}>Register</button>
+          <button className={styles.login} onClick={() => window.location.href = "/sign-in"} >Login</button>
+          <button className={styles.register} onClick={() => window.location.href = "/register"} >Register</button>
         </div>
       </div>
     </nav>

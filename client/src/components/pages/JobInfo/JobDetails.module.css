@@ -1,0 +1,96 @@
+.header{
+    background-color: white;
+    margin: 5rem 10rem;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 1.5rem 2rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 10rem;
+    background-color: white;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 2rem;
+}
+
+.container .types{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    color: #999999;
+}
+
+.container .types img{
+    width: 2.5rem;
+}
+
+.container .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .title button{
+    padding: 0.5rem 1.5rem;
+    height: fit-content;
+    background-color: #ED5353;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.container .title div span{
+    color: #ED5353;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.container .salary{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.container .salary .icon{
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem;
+    color: #999999;
+}
+
+.container .salary p{
+    color: #595959;
+}
+
+
+.container h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.about, .description, .skills, .information{
+    width: 90%;
+    line-height: 1.5;
+}
+
+.skill{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.skillCapsule{
+    background-color: #FFEEEE;
+    color: #595959;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* rgb(255 239 239) */

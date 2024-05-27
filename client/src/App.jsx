@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignIn from './components/pages/Authentication/SignIn';
 import Register from './components/pages/Authentication/Register';
 import Home from './components/pages/Home/Home';
-import Job from './components/pages/JobInfo/Job';
+import JobDetails from './components/pages/JobInfo/JobDetails';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/job/:id" element={<Job/>} />
+        <Route path="/job/:id" element={<JobDetails/>} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
       </Routes>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Authentication.module.css";
-import { login } from "../../../service/Authentication/auth";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -31,6 +30,7 @@ export default function SignIn() {
         alert(`Welcome, ${data.name}`);
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.userId);
+        window.location.href = "/";
       }
       else{
         alert(data.message);
