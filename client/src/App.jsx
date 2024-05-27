@@ -5,6 +5,7 @@ import SignIn from './components/pages/Authentication/SignIn';
 import Register from './components/pages/Authentication/Register';
 import Home from './components/pages/Home/Home';
 import JobDetails from './components/pages/JobInfo/JobDetails';
+import AddJobs from './components/pages/AddJobs/AddJobs';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/job/:id" element={<JobDetails/>} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/create" element={<AddJobs />} />
       </Routes>
     </BrowserRouter>
   )
