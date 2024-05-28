@@ -17,6 +17,8 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/create" element={<AddJobs />} />
+        <Route path="/edit/:id" element={<AddJobs />} />
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,14 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../../UI/Navbar/Navbar";
 // import Header from '../../UI/Header/Header'
 import styles from "./JobDetails.module.css";
 import { FaMoneyBill } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
+import { AuthContext } from "../../../AuthContext/AuthContext";
 
 export default function JobDetails() {
   const url = new URL(window.location.href);
   const id = url.pathname.split("/")[2];
-  const [jobDetails, setJobDetails] = useState(null);
+  const [jobDetails, setJobDetails] = useState({
+    title:"",
+    companyName: "",
+    location:"",
+    salary: "",
+    description: "",
+    locationType:"",
+    jobType:"",
+    skills:[],
+    logo: "",
+    about:"",
+    information:""
+  });
 
   useEffect(() => {
     const fetchJobDetails = async () => {
@@ -27,6 +40,14 @@ export default function JobDetails() {
     };
     fetchJobDetails();
   }, [id]);
+
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const handleNavigate = () => {
+    window.location.href = `/edit/${id}`;
+  }
+
+  const descriptionWithLineBreaks = jobDetails.description.replace(/\n/g, '<br>');
 
   return (
     <>
@@ -53,7 +74,7 @@ export default function JobDetails() {
               <h1>{jobDetails.title}</h1>
               <span> {jobDetails.location} | India </span>
             </div>
-            <button>Edit Job</button>
+            { isAuthenticated && <button onClick={handleNavigate}>Edit Job</button>}
           </div>
           <div className={styles.salary}>
             <div>
@@ -76,7 +97,7 @@ export default function JobDetails() {
           </div>
           <div className={styles.description}>
             <h2>About the job/internship</h2>
-            <p>{jobDetails.description}</p>
+            <p dangerouslySetInnerHTML={{ __html: descriptionWithLineBreaks }} />
           </div>
           <div className={styles.skills}>
             <h2>Skill(s) required</h2>

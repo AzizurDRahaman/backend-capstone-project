@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./SearchBar.module.css";
 import { FaSearch } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { AuthContext } from "../../../AuthContext/AuthContext";
 
 export default function SearchBar() {
   const skills = ["HTML", "CSS", "JavaScript", "React","HTML", "CSS", "JavaScript", "React"];
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    window.location.href = "/create";
+  };
   return (
     <div className={styles.container}>
       <form>
@@ -27,6 +34,7 @@ export default function SearchBar() {
             </div>
           </div>
           <div className={styles.buttons}>
+            { isAuthenticated && <button onClick={handleNavigate}>+ Add Jobs</button>}
             <button>Apply Filter</button>
             <button className={styles.clear}>Clear</button>
           </div>

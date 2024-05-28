@@ -43,6 +43,7 @@
     border-radius: 10px;
     font-weight: 600;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .container .title div span{

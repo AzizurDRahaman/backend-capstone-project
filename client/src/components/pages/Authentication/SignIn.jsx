@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../AuthContext/AuthContext";
 import styles from "./Authentication.module.css";
 
 export default function SignIn() {
@@ -6,6 +7,7 @@ export default function SignIn() {
     email: "",
     password: "",
   });
+  const { handleLogin } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setFormData({
@@ -14,30 +16,9 @@ export default function SignIn() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      console.log(data);
-      if(response.status === 200){
-        alert(`Welcome, ${data.name}`);
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("userId", data.userId);
-        window.location.href = "/";
-      }
-      else{
-        alert(data.message);
-      }
-    } catch (err) {
-      alert(err.message);
-    }
+    handleLogin(formData);
   };
 
   return (

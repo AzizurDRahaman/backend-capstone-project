@@ -20,7 +20,9 @@
 
 .buttons{
     display: flex;
+    align-items: center;
     gap: 1rem;
+    font-weight: 600;
 }
 
 .buttons button{
@@ -30,7 +32,6 @@
     border-radius: 10px;
     background-color: white;
     color: #ED5353;
-    font-weight: 600;
     cursor: pointer;
 }
 
@@ -79,4 +80,16 @@
     background-color: transparent;
     border: 2px solid white;
     color: white;
+}
+
+.buttons .logout{
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+}
+
+.buttons img{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }
