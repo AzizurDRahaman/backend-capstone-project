@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "*",
   })
 );
 
@@ -44,6 +44,10 @@ app.use((req, res, next) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/job", jobRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Hello World!").status(200);
+});
 
 app.use((err, req, res, next) => {
   const now = new Date();
