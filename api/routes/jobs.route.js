@@ -1,5 +1,5 @@
 import express from "express";
-import { createJob, getAllJobs, getJobById, updateJob } from "../controllers/jobs.controller.js";
+import { createJob, getAllJobs, getJobById, getSkills, updateJob } from "../controllers/jobs.controller.js";
 import { verifyAuth } from "../middleware/verifyAuth.js";
 
 
@@ -12,5 +12,6 @@ router.get("/", (req, res) => {
   router.get("/all", getAllJobs);
   router.get("/view/:jobnumber", getJobById); // job/123576
   router.patch("/update/:jobnumber", verifyAuth, updateJob);
+  router.get('/skills', getSkills);
 
 export default router;
